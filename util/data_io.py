@@ -5,6 +5,8 @@ from util import log_utils as log
 
 import os
 
+data_url = 'https://archive.ics.uci.edu/ml/datasets/Repeat+Consumption+Matrices'
+
 
 def get_dataset(dataset_name, return_csr=False):
     """
@@ -33,10 +35,10 @@ def get_dataset(dataset_name, return_csr=False):
     except IOError as e:
 
         print 'There was a problem loading the data for dataset %s.\n The correct structure is to have ' % dataset_name,
-        print 'a  directory with the dataset name, and inside it there need to be a train.csv, validation.csv and ',
-        print 'test.csv files. Eg path: %s' % train_name
+        print 'a ./data directory with the dataset name (%s), and inside it there need to be a ' % dataset_name,
+        print 'train.csv, validation.csv and test.csv files. Eg path: %s' % train_name
         print 'Each file must contain a COO numpy matrix.'
 
-        print 'The data used in the paper, can be found in -link-'
+        print 'The data used in the paper, can be found in %s' % data_url
         print 'Instructions on how to use them etc.'
         print e.message
